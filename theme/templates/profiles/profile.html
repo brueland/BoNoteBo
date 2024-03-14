@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Profile Page{% endblock %}
+
+{% block content %}
+    <h1>Ape Profile</h1>
+    <p><strong>{{ ape.name }}</strong></p>
+    {% if ape.profile_picture %}
+        <img src="{{ ape.profile_picture.url }}" alt="{{ ape.name }}'s Profile Picture" style="width:100px; height:auto;">
+    {% endif %}
+    <p><strong>Age: </strong>{{ ape.age }}</p>
+    <p><strong>Sex: </strong>{{ ape.sex }}</p>
+    <p><strong>Weight: </strong>{{ ape.weight }}</p>
+    <p><strong>Status:</strong>
+        {% if ape.status %}
+            {% for status in ape.status.all %}
+                {{ status }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}    
+        {% else %}
+            None
+        {% endif %}
+    </p>
+{% endblock %}

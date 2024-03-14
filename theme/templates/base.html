@@ -1,0 +1,31 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <title>Django Tailwind</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		{% tailwind_css %}
+	</head>
+
+	<body class="bg-gray-50 font-serif leading-normal tracking-normal">
+        <header>
+            <h1>BoNoteBo</h1>
+        </header>
+    
+        <nav>
+            <a href="/">Home</a>
+            <a href="/profiles/">My Profile</a>
+        </nav>
+    
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+    
+        <footer class="p-2 text-sm">
+            <p>BoNoteBo, EST 2024</p>
+        </footer>
+	</body>
+</html>
