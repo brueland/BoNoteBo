@@ -50,3 +50,12 @@ and run the site's builtin web server in another:
 ```
 python3 manage.py runserver
 ```
+
+### Formatting
+
+To format the code, run [black](https://github.com/psf/black) to format the Python files and [djlint](https://www.djlint.com/) to format the HTML templates:
+
+```
+black .
+djlint . --reformat
+```
