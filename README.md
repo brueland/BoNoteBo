@@ -39,7 +39,13 @@ python3 manage.py createsuperuser
 
 ### Running
 
-Lastly, run the site using the builtin web server:
+Lastly, run the site's [tailwindcss](https://tailwindcss.com/) watcher in one terminal:
+
+```
+python3 manage.py tailwind start
+```
+
+and run the site's builtin web server in another:
 
 ```
 python3 manage.py runserver
