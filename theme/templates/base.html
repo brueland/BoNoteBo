@@ -1,31 +1,38 @@
 {% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-    <title>Django Tailwind</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <title>Django Tailwind</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		{% tailwind_css %}
 	</head>
 
-	<body class="bg-gray-50 font-serif leading-normal tracking-normal">
-        <header>
-            <h1>BoNoteBo</h1>
+	<body class="bg-gray-50 font-serif leading-normal tracking-normal min-h-screen flex flex-col">
+        <header class="bg-red-100">
+            <div class="container mx-auto py-4">
+                <nav class="flex items-center gap-4">
+                    <a href="/" class="mr-auto text-2xl">BoNoteBo</a>
+                    <a href="/">Foo</a>
+                    <a href="/">Bar</a>
+                    <a href="/profiles/">My Profile</a>
+                </nav>
+            </div>
         </header>
     
-        <nav>
-            <a href="/">Home</a>
-            <a href="/profiles/">My Profile</a>
-        </nav>
-    
-        <main>
-            {% block content %}
-            {% endblock %}
+        <!-- flex-grow so that the middle section always grows to fit the screen -->
+        <main class="bg-green-100 flex-grow">
+            <div class="container mx-auto py-4">
+                {% block content %}
+                {% endblock %}
+            </div>
         </main>
     
-        <footer class="p-2 text-sm">
-            <p>BoNoteBo, EST 2024</p>
+        <footer class="bg-blue-100">
+            <div class="container mx-auto py-4">
+                <p class="text-sm text-center">BoNoteBo, EST 2024</p>
+            </div>
         </footer>
 	</body>
 </html>

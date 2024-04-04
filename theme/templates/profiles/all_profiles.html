@@ -14,7 +14,7 @@
     {% for profile in profiles %}
         <a href="{% url 'ape_profile' ape_name=profile.name %}">{{ profile.name }}</a>
         {% if profile.profile_picture %}
-            <img src="{{ profile.profile_picture.url }}" alt="{{ profile.name }}'s Profile Picture" style="width:100px; height:auto;">
+            <img src="{{ profile.profile_picture.url }}" alt="{{ profile.name }}'s Profile Picture" class="w-40">
         {% endif %}
     {% empty %}
         No profiles found.
