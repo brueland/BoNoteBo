@@ -5,11 +5,10 @@
         <title>Django Tailwind</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		{% tailwind_css %}
-	</head>
-
-	<body class="bg-gray-50 font-serif leading-normal tracking-normal min-h-screen flex flex-col">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        {% tailwind_css %}
+    </head>
+    <body class="bg-gray-50 font-serif leading-normal tracking-normal min-h-screen flex flex-col">
         <header class="bg-red-100">
             <div class="container mx-auto py-4">
                 <nav class="flex items-center gap-4">
@@ -20,19 +19,16 @@
                 </nav>
             </div>
         </header>
-    
         <!-- flex-grow so that the middle section always grows to fit the screen -->
         <main class="bg-green-100 flex-grow">
             <div class="container mx-auto py-4">
-                {% block content %}
-                {% endblock %}
+                {% block content %}{% endblock %}
             </div>
         </main>
-    
         <footer class="bg-blue-100">
             <div class="container mx-auto py-4">
                 <p class="text-sm text-center">BoNoteBo, EST 2024</p>
             </div>
         </footer>
-	</body>
+    </body>
 </html>
