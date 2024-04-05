@@ -1,24 +1,32 @@
 {% extends "base.html" %}
-
 {% block title %}Profile Page{% endblock %}
-
 {% block content %}
     <h1>User Profile</h1>
-    <p><strong>Username:</strong> {{ user.username }}</p>
-    <p><strong>Email:</strong> {{ user.email }}</p>
-    <p><strong>Bio:</strong> {{ user.profile.bio }}</p>
-    <p><strong>Location:</strong> {{ user.profile.location }}</p>
-    <p><strong>Birth Date:</strong> {{ user.profile.birth_date|date:"Y-m-d" }}</p>
-    
+    <p>
+        <strong>Username:</strong> {{ user.username }}
+    </p>
+    <p>
+        <strong>Email:</strong> {{ user.email }}
+    </p>
+    <p>
+        <strong>Bio:</strong> {{ user.profile.bio }}
+    </p>
+    <p>
+        <strong>Location:</strong> {{ user.profile.location }}
+    </p>
+    <p>
+        <strong>Birth Date:</strong> {{ user.profile.birth_date|date:"Y-m-d" }}
+    </p>
     <ul>
-    {% for profile in profiles %}
-        <a href="{% url 'ape_profile' ape_name=profile.name %}">{{ profile.name }}</a>
-        {% if profile.profile_picture %}
-            <img src="{{ profile.profile_picture.url }}" alt="{{ profile.name }}'s Profile Picture" class="w-40">
-        {% endif %}
-    {% empty %}
-        No profiles found.
-    {% endfor %}
-    <ul>
-
+        {% for profile in profiles %}
+            <a href="{% url 'ape_profile' ape_name=profile.name %}">{{ profile.name }}</a>
+            {% if profile.profile_picture %}
+                <img src="{{ profile.profile_picture.url }}"
+                     alt="{{ profile.name }}'s Profile Picture"
+                     class="w-40" />
+            {% endif %}
+        {% empty %}
+            No profiles found.
+        {% endfor %}
+    </ul>
 {% endblock %}
