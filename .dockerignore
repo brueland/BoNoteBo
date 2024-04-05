@@ -1,5 +1,12 @@
 fly.toml
 .git/
+
+# DB
 *.sqlite3
+
+# Virtual Envs
 .venv/
 venv/
+
+# Static Files
+static/
