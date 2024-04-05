@@ -10,3 +10,4 @@ venv/
 
 # Static Files
 static/
+theme/static/
