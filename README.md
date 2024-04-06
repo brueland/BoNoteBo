@@ -20,6 +20,12 @@ This project's dependencies can be installed via pip:
 pip install -r requirements.txt
 ```
 
+You'll also want to install [Django-Tailwind's](https://django-tailwind.readthedocs.io/en/latest/installation.html) dependencies via:
+
+```
+python3 manage.py tailwind install
+```
+
 ### Migrations
 
 First, prepare and apply any pending database migrations:
