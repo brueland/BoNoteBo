@@ -9,7 +9,7 @@ Data tracking application for Bonobo apes.
 This project depends on [Python](https://www.python.org/) and [NodeJS](https://nodejs.org/en).
 You'll need to install both of those language runtimes on your local machine in order to run this application.
 
-### Virtual Environment
+### Dependencies
 
 If you are unfamiliar with [virtual environments](https://docs.python.org/3/library/venv.html), I suggest taking a brief moment to learn about them and set one up.
 The Python docs provide a great [tutorial](https://docs.python.org/3/tutorial/venv.html) for getting started with virtual environments and packages.
