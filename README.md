@@ -53,7 +53,7 @@ python3 manage.py runserver
 
 ### Formatting
 
-To format the code, run [black](https://github.com/psf/black) to format the Python files and [djlint](https://www.djlint.com/) to format the HTML templates:
+To format the code, run [Black](https://github.com/psf/black) to format the Python files and [djLint](https://www.djlint.com/) to format the HTML templates:
 
 ```
 black .
