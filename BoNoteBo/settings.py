@@ -58,7 +58,7 @@ INTERNAL_IPS = [
 ]
 
 NPM_BIN_PATH = (
-    "C:/Program Files/nodejs/npm.cmd" if platform.platform() == "Windows" else "npm"
+    "C:/Program Files/nodejs/npm.cmd" if ("Windows" in platform.platform()) else "npm"
 )
 
 # /Tailwind
