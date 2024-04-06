@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 import platform
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,11 +24,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-n_bz^hz5!32-5d#wl6(+fk%3sgf%zr75(4$95_uho&$g+p&#sv"
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False if "FLY_APP_NAME" in os.environ else True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
+APP_NAME = os.environ.get("FLY_APP_NAME")
+if APP_NAME:
+    ALLOWED_HOSTS.append(f"{APP_NAME}.fly.dev")
 
 # Application definition
 
@@ -137,7 +140,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = "theme/static/"
+STATIC_URL = "static/"
+STATIC_ROOT = "static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
