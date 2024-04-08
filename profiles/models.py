@@ -61,10 +61,10 @@ class Ape(models.Model):
     ):
         health_record = HealthRecord.objects.create(
             ape=self,
-            weight=weight if weight is not None else self.weight,
-            swelling=swelling if swelling is not None else self.swelling,
-            stool_type=stool_type if stool_type is not None else self.stool_type,
-            status=status if status is not None else self.status,
+            weight=weight or self.weight,
+            swelling=swelling or self.swelling,
+            stool_type=stool_type or self.stool_type,
+            status=status or self.status,
         )
 
     def __str__(self):
