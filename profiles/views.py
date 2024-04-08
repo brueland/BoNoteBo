@@ -18,8 +18,9 @@ def all_ape_profiles(request):
 @login_required
 def ape_profile(request, ape_name):
     ape = Ape.objects.get(name=ape_name)
-    print("the ape is:", ape)
-    context = {"ape": ape}
+    most_recent_health_record = ape.health_record.latest("timestamp")
+    print(most_recent_health_record.status.all())
+    context = {"ape": ape, "most_recent_health_record": most_recent_health_record}
     return render(
         request=request, template_name="profiles/profile.html", context=context
     )

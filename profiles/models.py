@@ -1,7 +1,10 @@
 # profiles/models.py
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 SEX_CHOICES = [("M", "Male"), ("F", "Female"), ("U", "Unknown")]
+
 TUMESCENCE_CHOICES = [
     ("1", "No swelling and flaccid skin with many wrinkles"),
     ("2", "Half tumescent"),
@@ -35,29 +38,56 @@ STATUS_CHOICES = [
 
 
 class Status(models.Model):
-    code = models.CharField(max_length=3, unique=True)
+    status = models.CharField(max_length=3)
     description = models.CharField(max_length=255)
 
     class Meta:
         verbose_name_plural = "statuses"
 
     def __str__(self):
-        return f"{self.code} - {self.description}"
+        return f"{self.status} - {self.description}"
 
 
 class Ape(models.Model):
     name = models.CharField(max_length=100)
     age = models.PositiveIntegerField()
-    weight = models.DecimalField(max_digits=5, decimal_places=2)
     sex = models.CharField(max_length=1, choices=SEX_CHOICES, default="U")
     profile_picture = models.ImageField(
         upload_to="media/ape_profiles/", null=True, blank=True
     )
+
+    def create_health_record(
+        self, weight=None, swelling=None, stool_type=None, status=None
+    ):
+        health_record = HealthRecord.objects.create(
+            ape=self,
+            weight=weight or self.weight,
+            swelling=swelling or self.swelling,
+            stool_type=stool_type or self.stool_type,
+            status=status or self.status,
+        )
+
+    def __str__(self):
+        return self.name
+
+
+class HealthRecord(models.Model):
+    ape = models.ForeignKey(
+        "Ape", on_delete=models.CASCADE, related_name="health_record"
+    )
+    weight = models.DecimalField(max_digits=5, decimal_places=2, null=True)
     swelling = models.CharField(max_length=2, choices=TUMESCENCE_CHOICES, default="NA")
     stool_type = models.CharField(
         max_length=2, choices=STOOL_TYPE_CHOICES, default="NA"
     )
-    status = models.ManyToManyField(Status, related_name="apes", blank=True)
+    status = models.ManyToManyField(Status, blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return f"{self.ape.name} - {self.timestamp}"
+
+
+@receiver(post_save, sender=Ape)
+def _initialize_blank_health_record(sender, instance, created, **kwargs):
+    if created:
+        HealthRecord.objects.create(ape=instance)

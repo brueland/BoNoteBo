@@ -17,12 +17,12 @@
         <strong>Sex:</strong>{{ ape.sex }}
     </p>
     <p>
-        <strong>Weight:</strong>{{ ape.weight }}
+        <strong>Weight:</strong>{{ most_recent_health_record.weight }}
     </p>
     <p>
         <strong>Status:</strong>
-        {% if ape.status %}
-            {% for status in ape.status.all %}
+        {% if most_recent_health_record.status %}
+            {% for status in most_recent_health_record.status.all %}
                 {{ status }}
                 {% if not forloop.last %},{% endif %}
             {% endfor %}

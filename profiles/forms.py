@@ -1,16 +1,15 @@
 from django import forms
-from .models import Ape
+from .models import Ape, HealthRecord
 
 
 class ProfileForm(forms.ModelForm):
     class Meta:
-        model = Ape
-        fields = [
+        ape_model = Ape
+        ape_fields = [
             "name",
             "age",
-            "weight",
             "sex",
-            "swelling",
-            "status",
             "profile_picture",
         ]
+        health_record_model = HealthRecord
+        health_record_fields = ["weight", "stool_type", "swelling", "status"]
