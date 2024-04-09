@@ -102,6 +102,8 @@ They are loosely grouped by frequency to help design the app in such a way that 
   - Stool
   - Status
   - Time (default to now but allow fixing)
+  - Are these always observed at once or separately?
+  - Perhaps we can make the form dynamic and allow the Employee to add each measurement individually (but still part of the same record)
 - Employee updates an existing observation
 - Employee deletes an existing observation (who can do this?)
 
