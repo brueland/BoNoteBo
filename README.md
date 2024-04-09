@@ -65,3 +65,65 @@ To format the code, run [Black](https://github.com/psf/black) to format the Pyth
 black .
 djlint . --reformat
 ```
+
+## Requirements
+
+This section describes everything that this application is supposed to do.
+It outlines the user roles and the "stories" of the actions they'll take.
+
+### User Roles
+
+1. Admin - Individuals that administer the site (like Wes or Andrew)
+   1. Can do everything an Admin, Manager, or Employee can do
+2. Manager / Leader - Individuals in charge of operations and managing the facility and its employees
+   1. Can do everything a Manager or Employee can do
+3. Employee / Worker / Volunteer - Individuals who work at the facility and help take care of the animals (feed, observe)
+   1. Can only perform permitted Employee tasks
+
+### User Stories
+
+This section describes each and every task that a user of the application can perform.
+They are loosely grouped by frequency to help design the app in such a way that user are naturally guided toward common actions.
+
+#### High Frequency
+
+- Employee logs into the application
+- Employee logs out of the application
+- Employee resets their password
+  - Can this thing send emails?
+- Employee feeds one or more apes
+  - What food item?
+  - How much of it?
+    - If feeding multiple, how does the quantity work? Split or each?
+  - At what time? (default to now but allow fixing)
+- Employee observes information about an ape
+  - Weight
+  - Swelling
+  - Stool
+  - Status
+  - Time (default to now but allow fixing)
+  - Are these always observed at once or separately?
+  - Perhaps we can make the form dynamic and allow the Employee to add each measurement individually (but still part of the same record)
+- Employee updates an existing observation
+- Employee deletes an existing observation (who can do this?)
+
+#### Medium Frequency
+
+- Employee adds a new food item
+  - Icon
+  - Unit (what is a serving)
+  - Calories per unit
+- Employee updates an existing food item
+- Manager creates various reports about ape info (TODO: needs context)
+  - Info will likely be per-ape
+  - Including info about diet and health
+  - Likely over a period of time?
+
+#### Low Frequency
+
+- Manager adds a new Manager / Employee to the system
+- Manager deletes an existing Employee to the system
+  - Can they delete other Managers?
+- Manager adds a new ape
+- Manager archives an existing ape
+  - Don't delete them: keep the historical data around
