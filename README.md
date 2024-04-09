@@ -112,6 +112,10 @@ They are loosely grouped by frequency to help design the app in such a way that 
   - Unit (what is a serving)
   - Calories per unit
 - Employee updates an existing food item
+- Manager creates various reports about ape info (TODO: needs context)
+  - Info will likely be per-ape
+  - Including info about diet and health
+  - Likely over a period of time?
 
 #### Low Frequency
 
@@ -121,7 +125,3 @@ They are loosely grouped by frequency to help design the app in such a way that 
 - Manager adds a new ape
 - Manager archives an existing ape
   - Don't delete them: keep the historical data around
-- Manager creates various reports about ape info (TODO: needs context)
-  - Info will likely be per-ape
-  - Including info about diet and health
-  - Likely over a period of time?
